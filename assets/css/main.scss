@@ -94,6 +94,11 @@ h4,
   .section--ink & {
     color: #ffffff;
   }
+
+  @media (max-width: 599px) {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
 }
 
 .section-copy {
@@ -105,6 +110,11 @@ h4,
 
   .section--ink & {
     color: rgba(238, 243, 249, 0.82);
+  }
+
+  @media (max-width: 599px) {
+    font-size: 0.96rem;
+    line-height: 1.7;
   }
 }
 

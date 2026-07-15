@@ -136,7 +136,7 @@ async function onSubmit() {
               <a :href="site.phoneHref" class="contact-card__phone mt-3">
                 {{ site.phoneDisplay }}
               </a>
-              <div class="d-flex flex-wrap ga-3 mt-5">
+              <div class="feature-actions d-flex flex-wrap ga-3 mt-5">
                 <v-btn
                   :href="site.phoneHref"
                   color="accent"
@@ -364,6 +364,18 @@ async function onSubmit() {
 
 .feature-cta {
   color: var(--gie-primary-deep) !important;
+}
+
+@media (max-width: 599px) {
+  // Full-width stacked contact buttons are easier to tap on phones.
+  .feature-actions {
+    flex-direction: column;
+
+    .v-btn {
+      width: 100%;
+      min-height: 46px;
+    }
+  }
 }
 
 .contact-card__title {

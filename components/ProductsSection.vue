@@ -30,7 +30,7 @@ function enquire(productName: string) {
         <v-col
           v-for="(product, i) in site.products"
           :key="product.name"
-          cols="12"
+          cols="6"
           sm="6"
           md="4"
         >
@@ -39,7 +39,6 @@ function enquire(productName: string) {
               <v-img
                 :src="product.image"
                 :alt="`${product.name} — fresh export produce`"
-                height="230"
                 cover
                 class="product-card__img"
               />
@@ -82,7 +81,13 @@ function enquire(productName: string) {
 }
 
 .product-card__img {
+  height: 230px;
   transition: transform 0.5s ease;
+
+  @media (max-width: 599px) {
+    // Cards sit two-up on phones, so keep the photo shorter.
+    height: 140px;
+  }
 }
 
 .product-card:hover .product-card__img {
@@ -101,10 +106,25 @@ function enquire(productName: string) {
   font-weight: 700;
   color: var(--gie-primary-deep);
   box-shadow: 0 4px 14px rgba(12, 42, 74, 0.18);
+
+  @media (max-width: 599px) {
+    left: 0.6rem;
+    bottom: 0.6rem;
+    max-width: calc(100% - 1.2rem);
+    padding: 0.28rem 0.7rem;
+    font-size: 0.82rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .product-card__body {
   flex: 1;
+
+  @media (max-width: 599px) {
+    padding: 0.75rem 0.85rem 0.85rem;
+  }
 }
 
 .product-card__desc {
@@ -115,6 +135,12 @@ function enquire(productName: string) {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+
+  @media (max-width: 599px) {
+    font-size: 0.84rem;
+    line-height: 1.55;
+    -webkit-line-clamp: 3;
+  }
 }
 
 .product-card__enquire {
@@ -122,6 +148,8 @@ function enquire(productName: string) {
   align-items: center;
   gap: 0.3rem;
   margin-top: 0.7rem;
+  // Generous vertical padding keeps the link comfortably tappable.
+  padding: 0.35rem 0;
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--gie-accent-ink);

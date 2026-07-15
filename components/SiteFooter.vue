@@ -131,6 +131,9 @@ const year = new Date().getFullYear()
 }
 
 .footer__link {
+  display: inline-block;
+  // Small vertical padding keeps stacked links comfortably tappable.
+  padding: 0.2rem 0;
   color: rgba(238, 243, 249, 0.8);
   text-decoration: none;
   font-size: 0.92rem;
@@ -166,5 +169,10 @@ const year = new Date().getFullYear()
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.85rem;
   color: rgba(238, 243, 249, 0.6);
+
+  @media (max-width: 599px) {
+    justify-content: center;
+    text-align: center;
+  }
 }
 </style>

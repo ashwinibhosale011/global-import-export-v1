@@ -89,5 +89,18 @@ const site = useSiteStore()
 
 .process__cta {
   color: var(--gie-primary-deep) !important;
+
+  @media (max-width: 599px) {
+    // The label is long — let it wrap instead of overflowing the screen.
+    width: 100%;
+    height: auto !important;
+    min-height: 48px;
+    padding: 0.8rem 1.2rem;
+    white-space: normal;
+
+    :deep(.v-btn__content) {
+      white-space: normal;
+    }
+  }
 }
 </style>

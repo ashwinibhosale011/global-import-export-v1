@@ -125,6 +125,12 @@ const trustChips: { label: string; icon?: string; flag?: boolean }[] = [
   overflow: hidden;
   scroll-margin-top: 84px;
   background: var(--gie-primary-deep);
+
+  @media (max-width: 599px) {
+    // Let content size the hero on phones; 92vh leaves awkward dead space
+    // below the chips and pushes the dots under the sticky action bar.
+    min-height: 0;
+  }
 }
 
 .hero__slides,
@@ -180,6 +186,12 @@ const trustChips: { label: string; icon?: string; flag?: boolean }[] = [
   z-index: 1;
   padding-top: clamp(6rem, 12vh, 8rem);
   padding-bottom: clamp(4.5rem, 9vh, 6rem);
+
+  @media (max-width: 599px) {
+    padding-top: 4.5rem;
+    // Extra room below the chips so the slide dots don't crowd the content.
+    padding-bottom: 4.75rem;
+  }
 }
 
 .hero__copy {
@@ -196,6 +208,11 @@ const trustChips: { label: string; icon?: string; flag?: boolean }[] = [
   font-weight: 800;
   line-height: 1.08;
   color: #ffffff;
+
+  @media (max-width: 599px) {
+    font-size: 1.9rem;
+    line-height: 1.16;
+  }
 }
 
 .hero__highlight {
@@ -215,6 +232,17 @@ const trustChips: { label: string; icon?: string; flag?: boolean }[] = [
   flex-wrap: wrap;
   gap: 0.85rem;
   margin-top: 2.1rem;
+
+  @media (max-width: 599px) {
+    // Stacked, full-width buttons are easier to tap one-handed.
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 1.6rem;
+
+    :deep(.v-btn) {
+      width: 100%;
+    }
+  }
 }
 
 .hero__cta {
@@ -274,18 +302,31 @@ const trustChips: { label: string; icon?: string; flag?: boolean }[] = [
   transform: translateX(-50%);
   z-index: 1;
   display: flex;
-  gap: 0.55rem;
+  gap: 1rem;
+
+  @media (max-width: 959px) {
+    // Keep the dots clear of the sticky mobile action bar on the first screen.
+    bottom: 1.9rem;
+  }
 }
 
 .hero__dot {
-  width: 10px;
-  height: 10px;
+  position: relative;
+  width: 11px;
+  height: 11px;
   padding: 0;
   border: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: 999px;
   background: transparent;
   cursor: pointer;
   transition: background 0.25s ease, width 0.25s ease;
+
+  // Invisible halo so the tap target is ~35px even though the dot is small.
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -12px;
+  }
 
   &:focus-visible {
     outline: 2px solid var(--gie-accent);
