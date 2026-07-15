@@ -55,15 +55,15 @@ export const useSiteStore = defineStore('site', {
     // The same three banner images the original website rotates in its hero.
     heroSlides: [
       {
-        src: '/hero/vegetables.jpeg',
+        src: publicAsset('/hero/vegetables.jpeg'),
         alt: 'Fresh vegetables ready for export — cabbage, broccoli, zucchini, and carrots',
       },
       {
-        src: '/hero/onionHero.jpeg',
+        src: publicAsset('/hero/onionHero.jpeg'),
         alt: 'Export-grade red onions after harvest',
       },
       {
-        src: '/hero/container.jpeg',
+        src: publicAsset('/hero/container.jpeg'),
         alt: 'Shipping containers stacked for international dispatch',
       },
     ],
@@ -88,52 +88,52 @@ export const useSiteStore = defineStore('site', {
     products: [
       {
         name: 'Onion',
-        image: '/assets/onions-red.jpg',
+        image: publicAsset('/assets/onions-red.jpg'),
         description: 'Export-grade red onions, graded for size and long shelf life in transit.',
       },
       {
         name: 'Coconut',
-        image: '/assets/coconut-brown.jpg',
+        image: publicAsset('/assets/coconut-brown.jpg'),
         description: 'Semi-husked brown coconuts selected for weight, meat content, and uniform size.',
       },
       {
         name: 'Banana',
-        image: '/assets/banana-fresh.jpg',
+        image: publicAsset('/assets/banana-fresh.jpg'),
         description: 'Green-harvested bananas packed to arrive at the ripeness your market expects.',
       },
       {
         name: 'Ginger',
-        image: '/assets/ginger-fresh.jpg',
+        image: publicAsset('/assets/ginger-fresh.jpg'),
         description: 'Aromatic fresh ginger with the flavour profile and clean finish importers ask for.',
       },
       {
         name: 'Pomegranate',
-        image: '/assets/pomegranate-whole.jpg',
+        image: publicAsset('/assets/pomegranate-whole.jpg'),
         description: 'Deep-red pomegranates with a premium finish, packed to minimise handling damage.',
       },
       {
         name: 'Chili',
-        image: '/assets/chili-red.jpg',
+        image: publicAsset('/assets/chili-red.jpg'),
         description: 'Vibrant red chilies packed for uniform colour, heat, and reliable transit quality.',
       },
       {
         name: 'Okra',
-        image: '/assets/okra-fresh.jpg',
+        image: publicAsset('/assets/okra-fresh.jpg'),
         description: 'Tender okra picked young and packed to keep its crisp texture on arrival.',
       },
       {
         name: 'Drumstick',
-        image: '/assets/drumstick-moringa.jpg',
+        image: publicAsset('/assets/drumstick-moringa.jpg'),
         description: 'Fresh moringa drumsticks, tender and full-length, packed to stay crisp in transit.',
       },
       {
         name: 'Sugar',
-        image: '/assets/sugar-white.jpg',
+        image: publicAsset('/assets/sugar-white.jpg'),
         description: 'Refined white sugar in export grades, bagged and documented to your specification.',
       },
       {
         name: 'Organic Vegetables',
-        image: '/assets/organic-vegetables.jpg',
+        image: publicAsset('/assets/organic-vegetables.jpg'),
         description: 'Certified organic vegetables, mixed to order and packed for international transit.',
       },
     ] as Product[],
@@ -219,7 +219,7 @@ export const useSiteStore = defineStore('site', {
       { icon: 'mdi-youtube', label: 'YouTube', href: 'https://youtube.com/@globalindiaexport' },
     ] as SocialLink[],
 
-    galleryPhotos: Array.from({ length: 33 }, (_, i) => `/gallery/photo${i + 1}.jpg`),
+    galleryPhotos: Array.from({ length: 33 }, (_, i) => publicAsset(`/gallery/photo${i + 1}.jpg`)),
   }),
 
   getters: {

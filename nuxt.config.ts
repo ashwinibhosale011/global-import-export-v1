@@ -1,5 +1,8 @@
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
+// Set NUXT_APP_BASE_URL (e.g. '/global-import-export-v1/') when deploying under a subpath such as GitHub Pages.
+const baseURL = process.env.NUXT_APP_BASE_URL || '/'
+
 export default defineNuxtConfig({
   compatibilityDate: '2026-07-15',
   ssr: true,
@@ -33,6 +36,7 @@ export default defineNuxtConfig({
   },
 
   app: {
+    baseURL,
     head: {
       htmlAttrs: { lang: 'en' },
       title: 'Global India Import Export | Fresh Produce Exporters from India',
@@ -52,10 +56,10 @@ export default defineNuxtConfig({
             'Premium Indian vegetables and fruits, sourced at origin and delivered export-ready. Offices in Pune, India and Ras Al Khaimah, UAE.',
         },
         { property: 'og:type', content: 'website' },
-        { property: 'og:image', content: '/hero/vegetables.jpeg' },
+        { property: 'og:image', content: `${baseURL}hero/vegetables.jpeg` },
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/x-icon', href: `${baseURL}favicon.ico` },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         {

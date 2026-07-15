@@ -54,7 +54,7 @@ const site = useSiteStore()
         <v-col cols="12" md="6">
           <figure v-reveal="100" class="about-media">
             <v-img
-              src="/Team/Team.jpg"
+              :src="publicAsset('/Team/Team.jpg')"
               alt="The Global India Import Export team"
               class="about-media__img"
               cover
