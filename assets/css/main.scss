@@ -1,0 +1,175 @@
+// ---------------------------------------------------------------------------
+// Global India Import Export — global styles
+// Premium trade palette: deep navy (trust, global shipping) with a warm amber
+// accent for calls-to-action. Montserrat headings kept from the original brand.
+// ---------------------------------------------------------------------------
+
+:root {
+  --gie-ink: #13202e;
+  --gie-muted: #54637a;
+  --gie-primary: #123a63;
+  --gie-primary-deep: #0c2a4a;
+  --gie-accent: #f59e0b;
+  --gie-accent-soft: #ffc55f;
+  --gie-accent-ink: #b45309;
+  --gie-ivory: #f6f8fb;
+  --gie-line: rgba(19, 32, 46, 0.1);
+  --gie-radius-lg: 24px;
+  --gie-radius-md: 16px;
+  --gie-shadow-card: 0 14px 40px rgba(12, 42, 74, 0.08);
+  --gie-shadow-card-hover: 0 22px 52px rgba(12, 42, 74, 0.16);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  color: var(--gie-ink);
+  background: var(--gie-ivory);
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-heading {
+  font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+// --------------------------------------------------------------------------
+// Section scaffolding
+// --------------------------------------------------------------------------
+
+.section {
+  padding: clamp(4rem, 8vw, 6.5rem) 0;
+  // Anchor offset so sticky header does not cover section titles.
+  scroll-margin-top: 84px;
+}
+
+.section--tinted {
+  background: linear-gradient(180deg, #ffffff 0%, var(--gie-ivory) 100%);
+}
+
+.section--ink {
+  background:
+    radial-gradient(circle at 85% 0%, rgba(245, 158, 11, 0.14), transparent 44%),
+    linear-gradient(160deg, var(--gie-primary-deep) 0%, #10233a 70%);
+  color: #eef3f9;
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gie-accent-ink);
+
+  &::before {
+    content: '';
+    width: 34px;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--gie-accent);
+  }
+
+  .section--ink & {
+    color: var(--gie-accent-soft);
+  }
+}
+
+.section-title {
+  font-size: clamp(1.85rem, 3.4vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.12;
+  color: var(--gie-ink);
+  margin: 0.85rem 0 0;
+
+  .section--ink & {
+    color: #ffffff;
+  }
+}
+
+.section-copy {
+  max-width: 640px;
+  margin-top: 1rem;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--gie-muted);
+
+  .section--ink & {
+    color: rgba(238, 243, 249, 0.82);
+  }
+}
+
+// --------------------------------------------------------------------------
+// Cards
+// --------------------------------------------------------------------------
+
+.gie-card {
+  height: 100%;
+  border-radius: var(--gie-radius-lg) !important;
+  border: 1px solid var(--gie-line);
+  box-shadow: var(--gie-shadow-card) !important;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--gie-shadow-card-hover) !important;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Reveal-on-scroll animation (v-reveal directive)
+// --------------------------------------------------------------------------
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .gie-card,
+  .gie-card:hover {
+    transform: none;
+    transition: none;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Small helpers
+// --------------------------------------------------------------------------
+
+.text-balance {
+  text-wrap: balance;
+}
+
+// Keep room for the mobile action bar so content is never hidden behind it.
+@media (max-width: 959px) {
+  .v-application__wrap {
+    padding-bottom: 64px;
+  }
+}
