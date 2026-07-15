@@ -11,9 +11,13 @@ const year = new Date().getFullYear()
       <v-row>
         <v-col cols="12" md="5">
           <div class="d-flex align-center ga-3">
-            <span class="footer__mark" aria-hidden="true">
-              <v-icon icon="mdi-earth" size="20" />
-            </span>
+            <img
+              :src="publicAsset('/logo.png')"
+              alt=""
+              class="footer__logo"
+              width="42"
+              height="42"
+            />
             <span class="footer__brand">{{ site.businessName }}</span>
           </div>
           <p class="footer__blurb mt-4">
@@ -86,15 +90,12 @@ const year = new Date().getFullYear()
   padding: clamp(3rem, 6vw, 4.5rem) 0 0;
 }
 
-.footer__mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 11px;
-  background: linear-gradient(140deg, var(--gie-primary-deep), #1d5a96);
-  color: var(--gie-accent-soft);
+.footer__logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 50%;
 }
 
 .footer__brand {

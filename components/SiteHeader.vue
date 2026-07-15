@@ -9,9 +9,13 @@ const drawer = ref(false)
   <v-app-bar flat scroll-behavior="elevate" color="surface" height="72" class="site-header">
     <v-container class="d-flex align-center py-0">
       <a href="#home" class="brand" aria-label="Global India Import Export — home">
-        <span class="brand__mark" aria-hidden="true">
-          <v-icon icon="mdi-earth" size="20" />
-        </span>
+        <img
+          :src="publicAsset('/logo.png')"
+          alt=""
+          class="brand__logo"
+          width="46"
+          height="46"
+        />
         <span class="brand__text">
           <span class="brand__name">
             Global India
@@ -117,15 +121,10 @@ const drawer = ref(false)
   color: var(--gie-ink);
 }
 
-.brand__mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background: linear-gradient(140deg, var(--gie-primary-deep), #1d5a96);
-  color: var(--gie-accent-soft);
+.brand__logo {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
 }
 
 .brand__text {
